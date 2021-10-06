@@ -1,11 +1,11 @@
 body {
-	color: #00FF00;
+	color: #000000;
 	background-color: #000;
 	writing-mode: vertical-lr;
 	text-orientation: upright;
 	cursor: default;
 }
-span {color: #00FF00;}
+span {color: #000000;}
 td {font-size: 14px;}
 .mirrored {
 	-moz-transform: scale(-1, 1);
