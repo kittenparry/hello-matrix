@@ -6,9 +6,17 @@
 		background-color: #000;
 		writing-mode: vertical-lr;
 		text-orientation: upright;
+		cursor: default;
 	}
 	span {color: #00FF00;}
 	td {font-size: 14px;}
+	.mirrored {
+		-moz-transform: scale(-1, 1);
+		-webkit-transform: scale(-1, 1);
+		-o-transform: scale(-1, 1);
+		-ms-transform: scale(-1, 1);
+		transform: scale(-1, 1);
+	}
 </style>
 </head>
 <body>
@@ -32,7 +40,7 @@ const rgb_array = colour_array.map((i) => {
 });
 
 
-const char_set = [, 'E', 'H', 'L', 'O', ' ', ' ', ' '];
+const char_set = ['E', 'H', 'L', 'O', ' ', ' ', ' '];
 
 async function something(id) {
 	let current_try = '     ';
@@ -48,9 +56,16 @@ async function something(id) {
 			await sleep(delay/5);
 		}
 		
+		if (Math.random() * 100 < 50) {
+			document.getElementById(id).parentElement.classList.add('mirrored');
+		} else {
+			document.getElementById(id).parentElement.classList.remove('mirrored');
+		}
+
 	}
 
 	document.getElementById(id).style.color = 'red';
+	document.getElementById(id).parentElement.classList.remove('mirrored'); // remove mirroring when it's red
 }
 
 function rgb_to_hex(val) { // not really
@@ -72,7 +87,7 @@ async function colour_change(id) {
 		document.getElementById(id).style.color = '#00FF00';
 	}
 
-	while (document.getElementById(id).style.color != 'red') {		
+	while (document.getElementById(id).style.color != 'red') {
 		let current_col = rgb_to_hex(document.getElementById(id).style.color);
 		let chosen_col;
 
