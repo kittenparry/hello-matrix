@@ -1,0 +1,16 @@
+body {
+	color: #00FF00;
+	background-color: #000;
+	writing-mode: vertical-lr;
+	text-orientation: upright;
+	cursor: default;
+}
+span {color: #00FF00;}
+td {font-size: 14px;}
+.mirrored {
+	-moz-transform: scale(-1, 1);
+	-webkit-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	-ms-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+}
